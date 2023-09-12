@@ -1,3 +1,6 @@
+![Class Hierarchy Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/StarLordCraft/Games/RainBlocks/diagram.puml)
+
+
 # Rain Blocks
 A game that geometrics figures come on the screen the objective of the user's to click in the blocks faster, to avoid DEAD!
 
