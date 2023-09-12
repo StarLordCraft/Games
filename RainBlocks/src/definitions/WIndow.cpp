@@ -2,7 +2,7 @@
 
 WindowGame::WindowGame()
 {
-    this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "First Game",
+    this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "Rain Blocks",
     sf::Style::Titlebar | sf::Style::Close);
 }
 

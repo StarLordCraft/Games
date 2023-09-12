@@ -1,0 +1,13 @@
+@startuml
+class Game {
+}
+
+class Window {
+}
+
+class Key {
+}
+
+Game --|> Window
+Window --|> Key
+@enduml
