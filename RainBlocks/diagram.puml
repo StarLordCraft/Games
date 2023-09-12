@@ -8,6 +8,8 @@ class Window {
 class Key {
 }
 
-Game --|> Window
-Window --|> Key
+
+
+Key --|> Window
+Window --|> Game
 @enduml
