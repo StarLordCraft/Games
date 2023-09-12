@@ -3,7 +3,10 @@
 #include <functional>
 #include <map>
 
-extern std::map<int, std::function<void(sf::RenderWindow&)>> keys;
+namespace keyboard{
+    extern std::map<int, std::function<void(sf::RenderWindow&)>> keys;
 
-void Escape(sf::RenderWindow& window);
-void InitializeKeys();
+    void Escape(sf::RenderWindow& window);
+    void initializeKeys();
+}
+

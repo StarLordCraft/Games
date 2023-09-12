@@ -6,7 +6,7 @@
 
 class WindowGame {
 public:
-    WindowGame() : window(sf::VideoMode(800, 600), "SFML window",
+    WindowGame() : window(sf::VideoMode(800, 600), "First Game",
     sf::Style::Titlebar | sf::Style::Close)
     {}
     
@@ -29,8 +29,8 @@ void WindowGame::RenderGameLoop()
 
             case sf::Event::KeyPressed:
                 int key = this->event.key.code;
-                auto it = keys.find(key);
-                if(it != keys.end()){
+                auto it = keyboard::keys.find(key);
+                if(it != keyboard::keys.end()){
                     it->second(this->window);
                 }
             }

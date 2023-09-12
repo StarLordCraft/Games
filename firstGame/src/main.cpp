@@ -4,8 +4,11 @@
 
 int main()
 {
-    InitializeKeys();
+    keyboard::initializeKeys();
+
     WindowGame window;
+    
     window.RenderGameLoop();
+    
     return 0;
 }
