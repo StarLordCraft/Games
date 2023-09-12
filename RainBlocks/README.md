@@ -1,4 +1,4 @@
-![Class Hierarchy Diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/StarLordCraft/Games/main/RainBlocks/diagram.puml)
+![Class Hierarchy Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/StarLordCraft/Games/tree/firstGame/RainBlocks/diagram.puml)
 
 
 # Rain Blocks
