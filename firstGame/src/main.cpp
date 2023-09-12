@@ -5,9 +5,7 @@ int main()
 {
     keyboard::initializeKeys();
 
-    Game Game;
-
-    Game.run();
+    Game Game; Game.run();
 
     return 0;
 }

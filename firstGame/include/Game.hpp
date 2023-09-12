@@ -9,8 +9,8 @@ class Game{
     WindowGame *window;
     //Private functions
 
-    //Constructors / Destructors
     public:
+    //Constructors / Destructors
     Game();
     virtual ~Game();
 

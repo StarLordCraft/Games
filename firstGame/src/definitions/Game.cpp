@@ -3,7 +3,7 @@
 //COnstructor/destructor
 Game::Game()
 {
-
+    this->window = new WindowGame();
 }
 
 Game::~Game()
@@ -15,5 +15,5 @@ Game::~Game()
 void Game::run()
 {
     //rendering
-    this->window->RenderGameLoop();
+    this->window->renderGameLoop();
 }
