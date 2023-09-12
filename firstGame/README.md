@@ -1,5 +1,5 @@
 # First Game
-This is my official first game using C++, obviously this gonna be simple and maybe boring, but everyone has a start!
+This is my official first game using C++, obviously this gonna be simple and maybe boring, but everyone has a start! This game doesn't have a title YET.
 
 ## CONCEPT
 Create a simple game to test the library, it wont'll have a lot of textures, i'm thinking in something simple as some squares in the screen or another geometrics.
