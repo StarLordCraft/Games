@@ -6,25 +6,31 @@
 
 class WindowGame {
 public:
-    WindowGame() : window(sf::VideoMode(800, 600), "First Game",
-    sf::Style::Titlebar | sf::Style::Close)
-    {}
+    WindowGame()
+    {
+        window = new sf::RenderWindow(sf::VideoMode(800, 600), "First Game",
+        sf::Style::Titlebar | sf::Style::Close);
+    }
+    ~WindowGame()
+    {
+        delete this;
+    }
     
     void RenderGameLoop();
 
 private:
-    sf::RenderWindow window;
+    sf::RenderWindow *window;
     sf::Event event;
 };
 
 void WindowGame::RenderGameLoop()
 {
-    while(this->window.isOpen()){
-        while(this->window.pollEvent(this->event)){
+    while(this->window->isOpen()){
+        while(this->window->pollEvent(this->event)){
             switch (this->event.type)
             {
             case sf::Event::Closed:
-                this->window.close();
+                this->window->close();
                 break;
 
             case sf::Event::KeyPressed:
@@ -36,9 +42,9 @@ void WindowGame::RenderGameLoop()
             }
         }
         
-        this->window.clear();
+        this->window->clear();
 
-        this->window.display();
+        this->window->display();
         
     }
 }

@@ -1,14 +1,13 @@
 #include <iostream>
-#include "Window.hpp"
-#include "keys.hpp"
+#include "Game.hpp"
 
 int main()
 {
     keyboard::initializeKeys();
 
-    WindowGame window;
-    
-    window.RenderGameLoop();
-    
+    Game Game;
+
+    Game.run();
+
     return 0;
 }
