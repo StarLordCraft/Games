@@ -1,3 +1,0 @@
-/media/rafael/Hd/Projetos/cpp/graphicalProgramming/firstGame/build/CMakeFiles/firstGame.dir
-/media/rafael/Hd/Projetos/cpp/graphicalProgramming/firstGame/build/CMakeFiles/edit_cache.dir
-/media/rafael/Hd/Projetos/cpp/graphicalProgramming/firstGame/build/CMakeFiles/rebuild_cache.dir
