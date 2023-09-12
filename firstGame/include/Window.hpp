@@ -34,5 +34,6 @@ void WindowGame::RenderGameLoop()
                 }
             }
         }
+        
     }
 }
