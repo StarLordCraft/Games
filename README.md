@@ -13,6 +13,7 @@ I have coding xp with web development so i usually like to divide the code in mu
 
 - **Root**
  - main.cpp
+ - Window.hpp
  - **Game Classes**
    - Player.hpp
 
