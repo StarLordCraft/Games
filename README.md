@@ -16,8 +16,8 @@ I have coding xp with web development so i usually like to divide the code in mu
     - Header Files
   - **src**
     - main.cpp
-    - **Game**
-      - Player.cpp
+    - **definitions**
+      - Header Files definitions
   - **assets**
     - images
     - sounds
