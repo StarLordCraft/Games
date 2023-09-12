@@ -1,12 +1,9 @@
 #pragma once
-#include <map>
-#include <functional>
 #include <SFML/Graphics.hpp>
+#include <functional>
+#include <map>
 
 extern std::map<int, std::function<void(sf::RenderWindow&)>> keys;
 
-void InitializeKeys() {
-    keys[sf::Keyboard::Escape] = [](sf::RenderWindow& window) {
-        window.close();
-    };
-}
+void Escape(sf::RenderWindow& window);
+void InitializeKeys();

@@ -8,7 +8,8 @@ class WindowGame {
 public:
     WindowGame() : window(sf::VideoMode(800, 600), "SFML window",
     sf::Style::Titlebar | sf::Style::Close)
-    {InitializeKeys();}
+    {}
+    
     void RenderGameLoop();
 
 private:
@@ -34,6 +35,10 @@ void WindowGame::RenderGameLoop()
                 }
             }
         }
+        
+        this->window.clear();
+
+        this->window.display();
         
     }
 }
