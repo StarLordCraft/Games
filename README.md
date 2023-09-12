@@ -31,5 +31,8 @@ This's the pollemic part! OKay i know the c++ programmers usually like to create
 ### Classes Names
  - Capital Letter in the beggining like: Game or GameTest
 
+### Namespaces
+ - Only lower letters
+
 ###  Everything Else
  - Capital letter from the seccond word, like gameLoop() or playerMove.
