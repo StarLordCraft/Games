@@ -12,7 +12,6 @@ Every game'll be a branch in this repository, so every branch tell a story of a 
 I have coding xp with web development so i usually like to divide the code in multiple files to let it easy to read (in my opinion), so every game'll follow the structure:
 
 - **Root**
- - window.hpp
  - main.cpp
  - **Game Classes**
    - Player.hpp
