@@ -12,10 +12,16 @@ Every game'll be a branch in this repository, so every branch tell a story of a 
 I have coding xp with web development so i usually like to divide the code in multiple files to let it easy to read (in my opinion), so every game'll follow the structure:
 
 - **Root**
- - main.cpp
- - Window.hpp
- - **Game Classes**
-   - Player.hpp
+  - **include**
+    - Header Files
+  - **src**
+    - main.cpp
+    - **Game**
+      - Player.cpp
+  - **assets**
+    - images
+    - sounds
+    - fonts 
 
 I'll be updating this file to tell the structure folder of the games.
 
