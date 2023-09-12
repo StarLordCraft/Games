@@ -10,6 +10,6 @@ include_directories(./include)
 
 file(GLOB DEFINITIONS_SOURCES ./src/definitions/*.cpp)
 
-add_executable(firstGame ./src/main.cpp ${DEFINITIONS_SOURCES})
+add_executable(${PROJECT_NAME} ./src/main.cpp ${DEFINITIONS_SOURCES})
 
-target_link_libraries(firstGame PRIVATE sfml-graphics sfml-window sfml-system)
+target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics sfml-window sfml-system)
