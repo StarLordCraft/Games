@@ -4,6 +4,8 @@ WindowGame::WindowGame()
 {
     this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "Rain Blocks",
     sf::Style::Titlebar | sf::Style::Close);
+
+    this->window->setFramerateLimit(144);
 }
 
 WindowGame::~WindowGame()
@@ -11,8 +13,21 @@ WindowGame::~WindowGame()
     delete this->window;
 }
 
+void WindowGame::initEnemies()
+{
+    this->enemy.setPosition(0, 0);
+    this->enemy.setSize(sf::Vector2f(100.f, 100.f));
+    this->enemy.setFillColor(sf::Color::Cyan);
+    this->enemy.setOutlineColor(sf::Color::Green);
+    this->enemy.setOutlineThickness(1.f);
+
+}
+
 void WindowGame::renderGameLoop()
 {
+    //init a enemy
+    this->initEnemies();
+
     while(this->window->isOpen()){
         while(this->window->pollEvent(this->event)){
             switch (this->event.type)
@@ -32,7 +47,7 @@ void WindowGame::renderGameLoop()
         
         this->window->clear();
 
-
+        this->window->draw(this->enemy);
 
         this->window->display();
         

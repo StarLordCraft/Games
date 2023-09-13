@@ -8,10 +8,9 @@ Game::Game()
 
 Game::~Game()
 {
-    
+    this->window->~WindowGame();
 }
 
-//Functions
 void Game::run()
 {
     //rendering

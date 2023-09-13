@@ -6,17 +6,20 @@
 
 class WindowGame {
 private:
+    //Definitions
     sf::RenderWindow *window;
     sf::Event event;
+    sf::RectangleShape enemy;
 
 public:
+    //constructor/destructor
     WindowGame();
-
     ~WindowGame();
-    
+
+    //functions
     void renderGameLoop();
+    void initEnemies();
 
 };
 
 
-//Definitions
