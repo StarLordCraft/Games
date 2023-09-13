@@ -13,6 +13,36 @@ WindowGame::~WindowGame()
     delete this->window;
 }
 
+void WindowGame::pollEvents()
+{
+     while(this->window->pollEvent(this->event)){
+            switch (this->event.type)
+            {
+            case sf::Event::Closed:
+                this->window->close();
+                break;
+
+            case sf::Event::KeyPressed:
+                int key = this->event.key.code;
+                auto it = keyboard::keys.find(key);
+                if(it != keyboard::keys.end()){
+                    it->second(*this->window);
+                }
+            }
+        }
+}
+
+void WindowGame::updateMousePosition()
+{
+    this->mousePosWindow = sf::Mouse::getPosition(*this->window);
+}
+
+void WindowGame::updateScreen()
+{
+    this->window->draw(this->enemy);
+    this->updateMousePosition();
+}
+
 void WindowGame::initEnemies()
 {
     this->enemy.setPosition(0, 0);
@@ -29,25 +59,12 @@ void WindowGame::renderGameLoop()
     this->initEnemies();
 
     while(this->window->isOpen()){
-        while(this->window->pollEvent(this->event)){
-            switch (this->event.type)
-            {
-            case sf::Event::Closed:
-                this->window->close();
-                break;
 
-            case sf::Event::KeyPressed:
-                int key = this->event.key.code;
-                auto it = keyboard::keys.find(key);
-                if(it != keyboard::keys.end()){
-                    it->second(*this->window);
-                }
-            }
-        }
-        
+        this->pollEvents();
+
         this->window->clear();
 
-        this->window->draw(this->enemy);
+        this->updateScreen();
 
         this->window->display();
         

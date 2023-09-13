@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -9,7 +10,14 @@ private:
     //Definitions
     sf::RenderWindow *window;
     sf::Event event;
+
+    //Mouse Position
+    sf::Vector2i mousePosWindow;
+
+    //Game enemy
     sf::RectangleShape enemy;
+    std::vector <sf::RectangleShape> enemies;
+
 
 public:
     //constructor/destructor
@@ -17,8 +25,11 @@ public:
     ~WindowGame();
 
     //functions
-    void renderGameLoop();
     void initEnemies();
+    void pollEvents();
+    void updateMousePosition();
+    void updateScreen();
+    void renderGameLoop();
 
 };
 
