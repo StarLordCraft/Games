@@ -12,6 +12,7 @@ private:
 
     //Mouse Position
     sf::Vector2i mousePosWindow;
+    sf::Vector2f mousePosView;
 
 
 public:
@@ -25,6 +26,7 @@ public:
     //functions
     void drawEnemies(sf::Shape&);
     void updateMousePosition();
+    sf::Vector2f getMousePosition();
 };
 
 

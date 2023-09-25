@@ -23,26 +23,33 @@ void Game::events()
 {
     sf::RenderWindow* window = this->window->getWindow(); 
     while(window->pollEvent(this->event)){
-            switch (this->event.type)
-            {
-            case sf::Event::Closed:
-                window->close();
-                break;
+        switch (this->event.type){
+        case sf::Event::Closed:
+            window->close();
+            break;
 
-            case sf::Event::KeyPressed:
-                int key = this->event.key.code;
-                auto it = keyboard::keys.find(key);
-                if(it != keyboard::keys.end()){
-                    it->second(*window);
-                }
-            }
+        case sf::Event::MouseMoved:
+            this->window->updateMousePosition();
+            break;
+
+        case sf::Event::KeyPressed:
+            int key = this->event.key.code;
+            auto it = keyboard::keys.find(key);
+            if(it != keyboard::keys.end())
+                it->second(*window);
+            break;
+
+
         }
+    }
 }
 
 void Game::initEnemy()
 {
     this->enemy.setSize(sf::Vector2f(100.f, 100.f));
     this->enemy.setScale(sf::Vector2f(1.f, 1.f));
+
+
     this->enemy.setOutlineThickness(1.f);
     this->enemy.setOutlineColor(sf::Color::White);
 }
@@ -75,10 +82,24 @@ void Game::updateEnemies()
             this->enemySpawnTimer += 1.f;
     }
 
-    for(auto& enemy : this->enemies)
-    {
+    auto it = this->enemies.begin();
+    while (it != this->enemies.end()) {
+        auto& enemy = *it;
+        
         enemy.move(0.f, 5.f);
+        if(enemy.getPosition().y + enemy.getSize().y >= this->window->getWindow()->getSize().y){
+            this->enemies.erase(it);
+            continue;
+        }
+        
         this->window->drawEnemies(enemy);
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            if(enemy.getGlobalBounds().contains(this->window->getMousePosition())){
+                this->enemies.erase(it);
+            }
+        }
+        ++it;
     }
 }
 
