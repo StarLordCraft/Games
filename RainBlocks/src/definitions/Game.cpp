@@ -91,6 +91,7 @@ void Game::updateEnemies()
         auto& enemy = *it;
         
         enemy.move(0.f, 5.f);
+        this->window->drawEnemies(enemy);
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             if(enemy.getGlobalBounds().contains(this->window->getMousePosition())){
                 deleted = true;
@@ -103,7 +104,6 @@ void Game::updateEnemies()
         }
         ++it;
 
-        this->window->drawEnemies(enemy);
     }
 }
 
