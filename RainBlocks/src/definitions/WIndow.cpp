@@ -2,7 +2,7 @@
 
 WindowGame::WindowGame()
 {
-    this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "Rain Blocks",
+    this->window = new sf::RenderWindow(sf::VideoMode(1000, 800), "Rain Blocks",
     sf::Style::Titlebar | sf::Style::Close);
 
     this->window->setFramerateLimit(144);

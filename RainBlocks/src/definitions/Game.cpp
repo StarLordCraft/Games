@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include <iostream>
 
 //COnstructor/destructor
 Game::Game()
@@ -6,10 +7,10 @@ Game::Game()
     this->window = new WindowGame();
     
     //Game Logic 
-    this->points = 0;
+    this->points = 0; this -> maxPoints = 0;
+    this->maxEnemies = 10;
     this->enemySpawnTimer = 0.f;
-    this->enemySpawnTimerMax = 10.f;
-    this->maxEnemies = 5;
+    this->enemySpawnTimerMax = 30.f;
 }
 
 Game::~Game()
@@ -24,6 +25,7 @@ void Game::events()
     sf::RenderWindow* window = this->window->getWindow(); 
     while(window->pollEvent(this->event)){
         switch (this->event.type){
+
         case sf::Event::Closed:
             window->close();
             break;
@@ -41,7 +43,6 @@ void Game::events()
             if(it != keyboard::keys.end())
                 it->second(*window);
             break;
-
 
         }
     }
@@ -95,6 +96,8 @@ void Game::updateEnemies()
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             if(enemy.getGlobalBounds().contains(this->window->getMousePosition())){
                 deleted = true;
+
+                this->points += 10.f;
             }
         }
 
@@ -103,7 +106,6 @@ void Game::updateEnemies()
             continue;
         }
         ++it;
-
     }
 }
 
