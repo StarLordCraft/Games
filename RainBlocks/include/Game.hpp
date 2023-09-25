@@ -12,7 +12,8 @@ class Game{
     sf::Event event;
 
     //game Logic
-    int points, maxEnemies;
+    int points;
+    unsigned int maxEnemies;
     float enemySpawnTimer, enemySpawnTimerMax;
 
     //window

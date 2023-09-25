@@ -32,6 +32,9 @@ void Game::events()
             this->window->updateMousePosition();
             break;
 
+        default:
+        break;
+
         case sf::Event::KeyPressed:
             int key = this->event.key.code;
             auto it = keyboard::keys.find(key);
