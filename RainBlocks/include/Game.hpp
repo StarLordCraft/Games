@@ -3,6 +3,8 @@
 #include "keys.hpp"
 #include <ctime>
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 class Game{
     private:
@@ -13,7 +15,7 @@ class Game{
 
     //game Logic
     unsigned short maxEnemies; 
-    unsigned int points, maxPoints;
+    unsigned int points, betterScore;
     float enemySpawnTimer, enemySpawnTimerMax;
 
     //window
@@ -23,6 +25,8 @@ class Game{
     void initEnemy();
     void spawnEnemy();
     void updateEnemies();
+    unsigned int getBetterScore();
+    void setBetterScore();
 
     public:
     //Constructors / Destructors

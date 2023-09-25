@@ -7,7 +7,7 @@ Game::Game()
     this->window = new WindowGame();
     
     //Game Logic 
-    this->points = 0; this -> maxPoints = 0;
+    this->points = 0; this -> betterScore = this->getBetterScore();
     this->maxEnemies = 10;
     this->enemySpawnTimer = 0.f;
     this->enemySpawnTimerMax = 30.f;
@@ -98,6 +98,8 @@ void Game::updateEnemies()
                 deleted = true;
 
                 this->points += 10.f;
+                if(this->points > this->betterScore)
+                    this->setBetterScore();
             }
         }
 
@@ -107,6 +109,29 @@ void Game::updateEnemies()
         }
         ++it;
     }
+}
+
+unsigned int Game::getBetterScore()
+{
+    std::ifstream betterScoreFile;
+    betterScoreFile.open("./../score.txt");
+    
+        std::string score;
+        betterScoreFile >> score;
+
+    betterScoreFile.close();
+    
+    return static_cast<unsigned int>(std::atoi(score.c_str()));
+}
+
+void Game::setBetterScore()
+{
+    this->betterScore = this->points;
+    std::ofstream betterScoreFile("./../score.txt", std::ios::trunc);
+    
+        betterScoreFile << this->betterScore;
+    
+    betterScoreFile.close();
 }
 
 void Game::gameLoop()
