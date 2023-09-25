@@ -3,34 +3,28 @@
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
-#include "keys.hpp"
+#include <SFML/Graphics.hpp>
 
 class WindowGame {
 private:
     //Definitions
     sf::RenderWindow *window;
-    sf::Event event;
 
     //Mouse Position
     sf::Vector2i mousePosWindow;
-
-    //Game enemy
-    sf::RectangleShape enemy;
-    std::vector <sf::RectangleShape> enemies;
 
 
 public:
     //constructor/destructor
     WindowGame();
     ~WindowGame();
+    
+    //getters
+    sf::RenderWindow* getWindow();
 
     //functions
-    void initEnemies();
-    void pollEvents();
+    void drawEnemies(sf::RectangleShape&);
     void updateMousePosition();
-    void updateScreen();
-    void renderGameLoop();
-
 };
 
 
