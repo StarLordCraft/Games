@@ -1,6 +1,7 @@
 #pragma once
 #include "Window.hpp"
 #include "keys.hpp"
+#include <ctime>
 
 class Game{
     private:
@@ -17,7 +18,8 @@ class Game{
     WindowGame *window;
     //Private functions
     void gameLoop();
-    void spawnEnemies();
+    void spawnEnemy();
+    void updateEnemies();
 
     public:
     //Constructors / Destructors

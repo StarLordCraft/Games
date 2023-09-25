@@ -40,6 +40,32 @@ void Game::events()
         delete window;
 }
 
+void Game::spawnEnemy()
+{
+    this->enemy.setPosition(
+        static_cast<float>(rand() % static_cast<int>(this->window->getWindow()->getSize().x - this->enemy.getSize().x)),
+        static_cast<float>(rand() % static_cast<int>(this->window->getWindow()->getSize().y - this->enemy.getSize().y))
+    );
+    int r = rand() % 255, g = rand() % 255, b = rand() % 255;
+    
+    this->enemy.setFillColor(sf::Color(r, g, b, 1));
+
+    this->enemies.push_back(this->enemy);
+}
+
+void Game::updateEnemies()
+{
+    //update the timer and render enemy if need
+    if(this->enemies.size() < this->maxEnemies){
+        if(this->enemySpawnTimer >= this->enemySpawnTimerMax){
+                this->spawnEnemy();
+                this->enemySpawnTimer = 0.f;
+            }
+        else 
+            this->enemySpawnTimer += 1.f;
+    }
+}
+
 void Game::gameLoop()
 {
     sf::RenderWindow* window = this->window->getWindow();
