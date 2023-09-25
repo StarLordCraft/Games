@@ -9,21 +9,13 @@ WindowGame::WindowGame()
 }
 
 WindowGame::~WindowGame()
-{
-    delete this->window;
-}
+{ delete this->window; }
 
 void WindowGame::updateMousePosition()
-{
-    this->mousePosWindow = sf::Mouse::getPosition(*this->window);
-}
+{ this->mousePosWindow = sf::Mouse::getPosition(*this->window); }
 
 sf::RenderWindow* WindowGame::getWindow()
-{
-    return this->window;
-}
+{ return this->window; }
 
-void WindowGame::drawEnemies(sf::RectangleShape &enemy)
-{
-    this->window->draw(enemy);
-}
+void WindowGame::drawEnemies(sf::Shape &enemy)
+{ this->window->draw(enemy); }

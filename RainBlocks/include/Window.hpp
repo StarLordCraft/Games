@@ -23,7 +23,7 @@ public:
     sf::RenderWindow* getWindow();
 
     //functions
-    void drawEnemies(sf::RectangleShape&);
+    void drawEnemies(sf::Shape&);
     void updateMousePosition();
 };
 

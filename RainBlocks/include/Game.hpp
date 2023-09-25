@@ -18,6 +18,7 @@ class Game{
     WindowGame *window;
     //Private functions
     void gameLoop();
+    void initEnemy();
     void spawnEnemy();
     void updateEnemies();
 

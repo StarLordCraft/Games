@@ -8,7 +8,7 @@ Game::Game()
     //Game Logic 
     this->points = 0;
     this->enemySpawnTimer = 0.f;
-    this->enemySpawnTimerMax = 1000.f;
+    this->enemySpawnTimerMax = 10.f;
     this->maxEnemies = 5;
 }
 
@@ -37,18 +37,28 @@ void Game::events()
                 }
             }
         }
-        delete window;
+}
+
+void Game::initEnemy()
+{
+    this->enemy.setSize(sf::Vector2f(100.f, 100.f));
+    this->enemy.setScale(sf::Vector2f(1.f, 1.f));
+    this->enemy.setOutlineThickness(1.f);
+    this->enemy.setOutlineColor(sf::Color::White);
 }
 
 void Game::spawnEnemy()
 {
+    this->initEnemy();
+
     this->enemy.setPosition(
         static_cast<float>(rand() % static_cast<int>(this->window->getWindow()->getSize().x - this->enemy.getSize().x)),
-        static_cast<float>(rand() % static_cast<int>(this->window->getWindow()->getSize().y - this->enemy.getSize().y))
+        0.f
     );
+
     int r = rand() % 255, g = rand() % 255, b = rand() % 255;
     
-    this->enemy.setFillColor(sf::Color(r, g, b, 1));
+    this->enemy.setFillColor(sf::Color(r, g, b, 255));
 
     this->enemies.push_back(this->enemy);
 }
@@ -64,20 +74,28 @@ void Game::updateEnemies()
         else 
             this->enemySpawnTimer += 1.f;
     }
+
+    for(auto& enemy : this->enemies)
+    {
+        enemy.move(0.f, 5.f);
+        this->window->drawEnemies(enemy);
+    }
 }
 
 void Game::gameLoop()
 {
     sf::RenderWindow* window = this->window->getWindow();
+
     while(window->isOpen())
     {
         this->events();
 
         window->clear();
 
+            this->updateEnemies();
+        
         window->display();
     }
-    delete window;
 }
 
 void Game::run()
@@ -85,4 +103,3 @@ void Game::run()
     //rendering
     this->gameLoop();
 }
-
