@@ -84,22 +84,23 @@ void Game::updateEnemies()
 
     auto it = this->enemies.begin();
     while (it != this->enemies.end()) {
+        bool deleted = false;
         auto& enemy = *it;
         
         enemy.move(0.f, 5.f);
-        if(enemy.getPosition().y + enemy.getSize().y >= this->window->getWindow()->getSize().y){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            if(enemy.getGlobalBounds().contains(this->window->getMousePosition())){
+                deleted = true;
+            }
+        }
+
+        if(enemy.getPosition().y > this->window->getWindow()->getSize().y || deleted){
             this->enemies.erase(it);
             continue;
         }
-        
-        this->window->drawEnemies(enemy);
-
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            if(enemy.getGlobalBounds().contains(this->window->getMousePosition())){
-                this->enemies.erase(it);
-            }
-        }
         ++it;
+
+        this->window->drawEnemies(enemy);
     }
 }
 
