@@ -9,7 +9,6 @@ class Key {
 }
 
 
-
 Key --|> Window
 Window --|> Game
 @enduml
