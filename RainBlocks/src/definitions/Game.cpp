@@ -8,9 +8,14 @@ Game::Game()
     
     //Game Logic 
     this->points = 0; this -> betterScore = this->getBetterScore();
+    this->health = 10;
+
     this->maxEnemies = 10;
     this->enemySpawnTimer = 0.f;
     this->enemySpawnTimerMax = 30.f;
+
+    //iniciando o jogo no menu
+    this->gameState = keyboard::GameState::MENU;
 }
 
 Game::~Game()
@@ -97,7 +102,7 @@ void Game::updateEnemies()
             if(enemy.getGlobalBounds().contains(this->window->getMousePosition())){
                 deleted = true;
 
-                this->points += 10.f;
+                this->points += 10;
                 if(this->points > this->betterScore)
                     this->setBetterScore();
             }
@@ -105,10 +110,16 @@ void Game::updateEnemies()
 
         if(enemy.getPosition().y > this->window->getWindow()->getSize().y || deleted){
             this->enemies.erase(it);
+            this->health -= 1;
             continue;
         }
         ++it;
     }
+}
+
+void Game::gameOver()
+{
+
 }
 
 unsigned int Game::getBetterScore()

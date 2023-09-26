@@ -14,7 +14,8 @@ class Game{
     sf::Event event;
 
     //game Logic
-    unsigned short maxEnemies; 
+    int gameState;
+    unsigned short maxEnemies, health; 
     unsigned int points, betterScore;
     float enemySpawnTimer, enemySpawnTimerMax;
 
@@ -25,6 +26,7 @@ class Game{
     void initEnemy();
     void spawnEnemy();
     void updateEnemies();
+    void gameOver();
     unsigned int getBetterScore();
     void setBetterScore();
 
