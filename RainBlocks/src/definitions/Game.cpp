@@ -14,7 +14,7 @@ Game::Game()
     this->enemySpawnTimerMax = 30.f;
 
     //iniciando o jogo no menu
-    this->gameState = keyboard::GameState::MENU;
+    this->setGameState(engine::GameState::MENU);
 }
 
 Game::~Game()
@@ -163,5 +163,6 @@ void Game::gameLoop()
 void Game::run()
 {
     //rendering
-    this->gameLoop();
+    if(engine::GameState::PLAY == this->getGameState())
+        this->gameLoop();
 }

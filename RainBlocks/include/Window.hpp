@@ -1,18 +1,8 @@
 #pragma once
-#include <vector>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
+#include "Engine.hpp"
 
-class WindowGame {
+class WindowGame : public engine::Window {
 private:
-    //Definitions
-    sf::RenderWindow *window;
-
-    //Mouse Position
-    sf::Vector2i mousePosWindow;
-    sf::Vector2f mousePosView;
 
 
 public:
@@ -21,11 +11,11 @@ public:
     ~WindowGame();
     
     //getters
-    sf::RenderWindow* getWindow();
-
-    //functions
-    void drawEnemies(sf::Shape&);
+    
     void updateMousePosition();
+
+    //play functions
+    void drawEnemies(sf::Shape&);
     sf::Vector2f getMousePosition();
 };
 

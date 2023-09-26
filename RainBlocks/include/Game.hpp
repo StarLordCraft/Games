@@ -1,11 +1,7 @@
 #pragma once
 #include "keys.hpp"
-#include <ctime>
-#include <vector>
-#include <iostream>
-#include <fstream>
 
-class Game{
+class Game : engine::Game{
     private:
     //Variables
     sf::RectangleShape enemy;
@@ -13,7 +9,6 @@ class Game{
     sf::Event event;
 
     //game Logic
-    int gameState;
     unsigned short maxEnemies, health; 
     unsigned int points, betterScore;
     float enemySpawnTimer, enemySpawnTimerMax;

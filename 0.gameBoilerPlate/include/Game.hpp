@@ -16,4 +16,5 @@ class Game{
 
     //functions
     void run();
+    void gameLoop();
 };
