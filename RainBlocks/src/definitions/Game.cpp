@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "Window.hpp"
 
 //COnstructor/destructor
 Game::Game()
@@ -14,7 +15,7 @@ Game::Game()
     this->enemySpawnTimerMax = 30.f;
 
     //iniciando o jogo no menu
-    this->setGameState(engine::GameState::MENU);
+    this->gameState = engine::GameState::MENU;
 }
 
 Game::~Game()
@@ -24,34 +25,6 @@ Game::~Game()
 }
 
 //Functions
-void Game::events()
-{
-    sf::RenderWindow* window = this->window->getWindow(); 
-    while(window->pollEvent(this->event)){
-        switch (this->event.type){
-
-        case sf::Event::Closed:
-            window->close();
-            break;
-
-        case sf::Event::MouseMoved:
-            this->window->updateMousePosition();
-            break;
-
-        default:
-        break;
-
-        case sf::Event::KeyPressed:
-            int key = this->event.key.code;
-            auto it = keyboard::keys.find(key);
-            if(it != keyboard::keys.end())
-                it->second(*this->window);
-            break;
-
-        }
-    }
-}
-
 void Game::initEnemy()
 {
     this->enemy.setSize(sf::Vector2f(100.f, 100.f));
@@ -148,21 +121,12 @@ void Game::gameLoop()
 {
     sf::RenderWindow* window = this->window->getWindow();
 
-    while(window->isOpen())
-    {
-        this->events();
+    this->events();
 
-        window->clear();
+    window->clear();
 
-            this->updateEnemies();
-        
-        window->display();
-    }
-}
+    this->updateEnemies();
 
-void Game::run()
-{
-    //rendering
-    if(engine::GameState::PLAY == this->getGameState())
-        this->gameLoop();
+    window->display();
+
 }

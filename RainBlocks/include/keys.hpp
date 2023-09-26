@@ -1,11 +1,12 @@
 #pragma once
-#include "Window.hpp"
+#include <map>
+#include <functional>
 
-//defining the keyboard Keys accepted
+class WindowGame; // Forward declaration
+
 namespace keyboard {
     extern std::map<int, std::function<void(WindowGame&)>> keys;
 
     void Escape(WindowGame& window);
     void initializeKeys();
 }
-

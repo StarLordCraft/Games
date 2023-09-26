@@ -14,6 +14,10 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
+//Personal includes
+#include "keys.hpp"
+
+
 namespace engine {
     enum GameState {
         MENU,
@@ -21,31 +25,35 @@ namespace engine {
         PLAY
     };
 
-    class Game {
-        private:
+    class EngineGame {
+        protected:
         engine::GameState gameState;
+        sf::Event event;
+        WindowGame *window;
+
+        virtual void gameLoop();
+        void events();
 
         public:
-        void setGameState(engine::GameState);
-        engine::GameState getGameState();
+        void run();
     };
 
     class Window {
+        
     protected:
     //Definitions
     sf::RenderWindow *window;
     //Mouse Position
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
-    void updateMousePosition();
-
 
     public:
-    Window();
-    
-    //Getters
-    sf::RenderWindow* getWindow();
 
+    //Getters / setters
+    void updateMousePosition();
+    sf::Vector2f getMousePosition();
+
+    sf::RenderWindow* getWindow();
 
     };
 }

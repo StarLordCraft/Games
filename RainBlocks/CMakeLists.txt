@@ -8,7 +8,10 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
 include_directories(./include)
 
-file(GLOB DEFINITIONS_SOURCES ./src/definitions/*.cpp)
+file(GLOB DEFINITIONS_SOURCES 
+    ./src/definitions/*.cpp
+    ./src/definitions/**/**.cpp
+)
 
 add_executable(${PROJECT_NAME} ./src/main.cpp ${DEFINITIONS_SOURCES})
 
