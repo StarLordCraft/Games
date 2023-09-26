@@ -13,14 +13,20 @@ class Game : public engine::EngineGame{
     float enemySpawnTimer, enemySpawnTimerMax;
     
     //Private functions
+
+    //Game initializations
+    void initGame() override;
     void initEnemy();
     void spawnEnemy();
     void updateEnemies();
-    void gameLoop() override;
-    void gameOver();
-    
+
+    //Storing and getting betterScore
     unsigned int getBetterScore();
     void setBetterScore();
+
+    //Game Loop
+    void gameLoop() override;
+    
 
     public:
     //Constructors / Destructors

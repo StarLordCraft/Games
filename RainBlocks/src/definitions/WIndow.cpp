@@ -13,3 +13,8 @@ WindowGame::~WindowGame()
 
 void WindowGame::drawEnemies(sf::Shape &enemy)
 { this->window->draw(enemy); }
+
+void WindowGame::showMenu()
+{
+    
+}

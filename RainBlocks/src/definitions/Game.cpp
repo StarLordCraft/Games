@@ -7,15 +7,7 @@ Game::Game()
     this->window = new WindowGame();
     
     //Game Logic 
-    this->points = 0; this -> betterScore = this->getBetterScore();
-    this->health = 10;
-
-    this->maxEnemies = 10;
-    this->enemySpawnTimer = 0.f;
-    this->enemySpawnTimerMax = 30.f;
-
-    //iniciando o jogo no menu
-    this->gameState = engine::GameState::MENU;
+    this -> betterScore = this->getBetterScore();
 }
 
 Game::~Game()
@@ -25,11 +17,24 @@ Game::~Game()
 }
 
 //Functions
+
+void Game::initGame()
+{
+    this->points = 0; 
+    this->health = 10;
+
+    this->maxEnemies = 10;
+    this->enemySpawnTimer = 0.f;
+    this->enemySpawnTimerMax = 30.f;
+
+    //iniciando o jogo no menu
+    this->gameState = engine::GameState::PLAY;
+}
+
 void Game::initEnemy()
 {
     this->enemy.setSize(sf::Vector2f(100.f, 100.f));
     this->enemy.setScale(sf::Vector2f(1.f, 1.f));
-
 
     this->enemy.setOutlineThickness(1.f);
     this->enemy.setOutlineColor(sf::Color::White);
@@ -87,11 +92,6 @@ void Game::updateEnemies()
         }
         ++it;
     }
-}
-
-void Game::gameOver()
-{
-
 }
 
 unsigned int Game::getBetterScore()

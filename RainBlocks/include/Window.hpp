@@ -12,8 +12,9 @@ public:
     
     //getters
 
+    // menu functions
+    void showMenu();
+
     //play functions
     void drawEnemies(sf::Shape&);
 };
-
-

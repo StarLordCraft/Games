@@ -5,8 +5,6 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <functional>
-#include <map>
 
 //SFML includes
 #include <SFML/Audio.hpp>
@@ -26,12 +24,21 @@ namespace engine {
     };
 
     class EngineGame {
+        private:
+        /// @brief
+        // Controlling state
+        void pause();
+        void menu();
+
+        //Game
+        virtual void initGame();
+        virtual void gameLoop();
+
         protected:
         engine::GameState gameState;
         sf::Event event;
         WindowGame *window;
 
-        virtual void gameLoop();
         void events();
 
         public:

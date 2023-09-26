@@ -2,6 +2,23 @@
 #include "Window.hpp"
 
 namespace engine {
+    void EngineGame::pause()
+    {
+        
+    }
+    /// @brief 
+    /// @return void
+    /**
+     should stop the game and render menu!
+    */
+    void EngineGame::menu()
+    {
+        this->window->showMenu();
+    }
+
+    void EngineGame::initGame()
+    { }
+
     void EngineGame::gameLoop()
     {  }
 
@@ -37,8 +54,11 @@ namespace engine {
     {
         //rendering
         while (window->getWindow()->isOpen()){
-            if(engine::GameState::PLAY == this->gameState)
+            if(engine::GameState::MENU == this->gameState)
+                this->menu();
+            else if(engine::GameState::PLAY == this->gameState)
                 this->gameLoop();
+            else break;
         }
     }
 
