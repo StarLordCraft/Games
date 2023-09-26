@@ -2,6 +2,7 @@
 #include "Window.hpp"
 
 namespace engine {
+    
     void EngineGame::pause()
     {
         
@@ -43,7 +44,7 @@ namespace engine {
                 int key = this->event.key.code;
                 auto it = keyboard::keys.find(key);
                 if(it != keyboard::keys.end())
-                    it->second(*this->window);
+                    it->second(*this);
                 break;
 
             }

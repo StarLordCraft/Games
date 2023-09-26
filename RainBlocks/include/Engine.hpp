@@ -15,6 +15,7 @@
 //Personal includes
 #include "keys.hpp"
 
+class WindowGame; // Foward Declaration
 
 namespace engine {
     enum GameState {
@@ -23,12 +24,11 @@ namespace engine {
         PLAY
     };
 
+
     class EngineGame {
         private:
         /// @brief
         // Controlling state
-        void pause();
-        void menu();
 
         //Game
         virtual void initGame();
@@ -43,6 +43,9 @@ namespace engine {
 
         public:
         void run();
+        //Take game states
+        void pause();
+        void menu();
     };
 
     class Window {

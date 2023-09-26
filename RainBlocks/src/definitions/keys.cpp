@@ -1,18 +1,17 @@
 #include "keys.hpp"
-#include "Window.hpp"
-
-//implementing the keyboard keys
-
+#include "Engine.hpp"
 namespace keyboard {
-    std::map<int, std::function<void(WindowGame&)>> keys;
+        std::map<int, std::function<void(engine::EngineGame&)>> keys;
 
-    void Escape(WindowGame& window)
-    {
-        
-    }
+        /// @brief
+        /// @param window
+        /// @return void
+        // should pause the game 
+        void Escape(engine::EngineGame& engine)
+        { engine.pause();}
 
-    void initializeKeys() 
-    {
-        keys[sf::Keyboard::Escape] = Escape;
+        void initializeKeys() 
+        {
+            keys[sf::Keyboard::Escape] = Escape;
+        }
     }
-}
