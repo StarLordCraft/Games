@@ -3,13 +3,12 @@
 
 class WindowGame : public engine::Window {
 private:
-
+        
 
 public:
     //constructor/destructor
     WindowGame();
-    ~WindowGame();
-    
+    ~WindowGame(); 
     //getters
 
     // menu functions

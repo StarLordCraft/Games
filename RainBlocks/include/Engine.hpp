@@ -24,7 +24,6 @@ namespace engine {
         PLAY
     };
 
-
     class EngineGame {
         private:
         /// @brief
@@ -48,6 +47,7 @@ namespace engine {
         void menu();
     };
 
+
     class Window {
         
     protected:
@@ -64,6 +64,8 @@ namespace engine {
     sf::Vector2f getMousePosition();
 
     sf::RenderWindow* getWindow();
+
+    virtual void run ();
 
     };
 }

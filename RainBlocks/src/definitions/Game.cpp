@@ -8,6 +8,8 @@ Game::Game()
     
     //Game Logic 
     this -> betterScore = this->getBetterScore();
+
+    this->gameState = engine::GameState::MENU;
 }
 
 Game::~Game()

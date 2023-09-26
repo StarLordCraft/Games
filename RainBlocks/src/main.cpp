@@ -1,6 +1,6 @@
 #include "Game.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
     std::srand(static_cast<unsigned>(time(NULL)));
     keyboard::initializeKeys();
