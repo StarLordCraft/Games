@@ -1,5 +1,4 @@
 #include "Game.hpp"
-#include <iostream>
 
 //COnstructor/destructor
 Game::Game()
@@ -46,7 +45,7 @@ void Game::events()
             int key = this->event.key.code;
             auto it = keyboard::keys.find(key);
             if(it != keyboard::keys.end())
-                it->second(*window);
+                it->second(*this->window);
             break;
 
         }

@@ -2,11 +2,11 @@
 
 //implementing the keyboard keys
 namespace keyboard {
-    std::map<int, std::function<void(sf::RenderWindow&)>> keys;
+    std::map<int, std::function<void(WindowGame&)>> keys;
 
-    void Escape(sf::RenderWindow& window)
+    void Escape(WindowGame& window)
     {
-        window.close();
+        
     }
 
     void initializeKeys() 

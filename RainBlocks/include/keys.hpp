@@ -1,4 +1,5 @@
 #pragma once
+#include "Window.hpp"
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include <map>
@@ -10,10 +11,10 @@ namespace keyboard{
         PAUSE,
         PLAY
     };
-    
-    extern std::map<int, std::function<void(sf::RenderWindow&)>> keys;
 
-    void Escape(sf::RenderWindow& window);
+    extern std::map<int, std::function<void(WindowGame&)>> keys;
+
+    void Escape(WindowGame& window);
     void initializeKeys();
 }
 
