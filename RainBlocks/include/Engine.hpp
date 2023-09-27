@@ -15,18 +15,20 @@
 //Personal includes
 #include "keys.hpp"
 
-class WindowGame; // Foward Declaration
-
 namespace engine {
     enum GameState {
         MENU,
+        ABOUT,
+        PLAY,
         PAUSE,
-        PLAY
     };
 
     class EngineGame {
         private:
         /// @brief
+        //Game screens
+        std::map <std::string, engine::Window*> screens;
+        //define screen to render
         // Controlling state
 
         //Game
@@ -34,38 +36,45 @@ namespace engine {
         virtual void gameLoop();
 
         protected:
-        engine::GameState gameState;
+        GameState gameState;
+
         sf::Event event;
-        WindowGame *window;
+        Window *window;
 
         void events();
+
+        //deleter / Setters
+        void deleteScreens();
+        void defineScreen();
+        void setScreens(std::map<std::string, engine::Window*> screens);
 
         public:
         void run();
         //Take game states
         void pause();
-        void menu();
+        //void menu();
     };
 
 
     class Window {
-        
-    protected:
-    //Definitions
-    sf::RenderWindow *window;
-    //Mouse Position
-    sf::Vector2i mousePosWindow;
-    sf::Vector2f mousePosView;
+        protected:
+        //Definitions
+        sf::RenderWindow *window;
+        //Mouse Position
+        sf::Vector2i mousePosWindow;
+        sf::Vector2f mousePosView;
 
-    public:
+        public:
+        Window();
+        Window(sf::RenderWindow* window) : window(window)
+        { }; 
+        virtual ~Window();
+        //Getters / setters
+        void updateMousePosition();
+        sf::Vector2f getMousePosition();
 
-    //Getters / setters
-    void updateMousePosition();
-    sf::Vector2f getMousePosition();
+        sf::RenderWindow* getWindow();
 
-    sf::RenderWindow* getWindow();
-
-    virtual void run ();
-
+        virtual void render();
     };
 }

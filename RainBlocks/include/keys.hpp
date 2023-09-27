@@ -5,6 +5,7 @@
 
 namespace engine{
     class EngineGame; // foward declaration
+    class Window;
 }
 
 

@@ -1,21 +1,31 @@
 #include "Game.hpp"
-#include "Window.hpp"
+#include "Screens.hpp"
 
 //COnstructor/destructor
 Game::Game()
 {
-    this->window = new WindowGame();
+    this->window = new engine::Window();
     
     //Game Logic 
     this -> betterScore = this->getBetterScore();
 
     this->gameState = engine::GameState::MENU;
+
+    MenuScreen *Menu = new MenuScreen(this->window->getWindow());
+    PlayScreen *Game = new PlayScreen(this->window->getWindow());
+
+    this->setScreens({
+        {"menu", Menu},
+        {"about", Game},
+        {"play", Game}
+    });
 }
 
 Game::~Game()
 {
-    this->window->~WindowGame();
+    this->window->~Window();
     delete this->window;
+    this->deleteScreens();
 }
 
 //Functions
@@ -76,7 +86,7 @@ void Game::updateEnemies()
         auto& enemy = *it;
         
         enemy.move(0.f, 5.f);
-        this->window->drawEnemies(enemy);
+       
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             if(enemy.getGlobalBounds().contains(this->window->getMousePosition())){
                 deleted = true;
